@@ -1,0 +1,44 @@
+[
+  {
+    "userId": "payroll123",
+    "displayName": "Maria Chen",
+    "email": "m***@kelly.com",
+    "role": "Payroll",
+    "permissions": ["search", "preview", "download", "email", "package", "audit", "dashboard"]
+  },
+  {
+    "userId": "legal456",
+    "displayName": "James Wright",
+    "email": "j***@kelly.com",
+    "role": "Legal",
+    "permissions": ["search", "preview", "download", "package", "audit", "dashboard"]
+  },
+  {
+    "userId": "tax789",
+    "displayName": "Priya Patel",
+    "email": "p***@kelly.com",
+    "role": "Tax",
+    "permissions": ["search", "preview", "download", "package", "audit", "dashboard"]
+  },
+  {
+    "userId": "efsc321",
+    "displayName": "David Kim",
+    "email": "d***@kelly.com",
+    "role": "EFSC",
+    "permissions": ["search", "preview", "audit", "dashboard"]
+  },
+  {
+    "userId": "supervisor001",
+    "displayName": "Angela Torres",
+    "email": "a***@kelly.com",
+    "role": "Supervisor",
+    "permissions": ["search", "preview", "download", "email", "package", "audit", "dashboard", "governance"]
+  },
+  {
+    "userId": "unauth999",
+    "displayName": "Test User",
+    "email": "t***@kelly.com",
+    "role": "Unauthorized",
+    "permissions": []
+  }
+]

@@ -1,0 +1,865 @@
+[
+  {
+    "eventId": "EVT001",
+    "userId": "payroll123",
+    "userName": "Maria Chen",
+    "userRole": "Payroll",
+    "timestamp": "2025-06-15T09:12:34Z",
+    "actionType": "preview",
+    "documentId": "DOC001",
+    "employeeId": "EMP001",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "John Smith",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT002",
+    "userId": "payroll123",
+    "userName": "Maria Chen",
+    "userRole": "Payroll",
+    "timestamp": "2025-06-15T09:14:02Z",
+    "actionType": "download",
+    "documentId": "DOC001",
+    "employeeId": "EMP001",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "John Smith",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT003",
+    "userId": "payroll123",
+    "userName": "Maria Chen",
+    "userRole": "Payroll",
+    "timestamp": "2025-06-15T09:20:45Z",
+    "actionType": "email",
+    "documentId": "DOC004",
+    "employeeId": "EMP001",
+    "details": {
+      "documentType": "Paystub",
+      "year": "2025",
+      "period": "Q1",
+      "employeeName": "John Smith",
+      "recipient": "j***@kelly.com",
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT004",
+    "userId": "legal456",
+    "userName": "James Wright",
+    "userRole": "Legal",
+    "timestamp": "2025-06-15T10:05:18Z",
+    "actionType": "preview",
+    "documentId": "DOC010",
+    "employeeId": "EMP002",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Sarah Johnson",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT005",
+    "userId": "legal456",
+    "userName": "James Wright",
+    "userRole": "Legal",
+    "timestamp": "2025-06-15T10:07:33Z",
+    "actionType": "download",
+    "documentId": "DOC010",
+    "employeeId": "EMP002",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Sarah Johnson",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT006",
+    "userId": "legal456",
+    "userName": "James Wright",
+    "userRole": "Legal",
+    "timestamp": "2025-06-15T10:12:50Z",
+    "actionType": "package",
+    "documentId": null,
+    "employeeId": "EMP002",
+    "details": {
+      "documentType": "W-2",
+      "years": ["2024", "2023", "2022"],
+      "employeeName": "Sarah Johnson",
+      "recipient": null,
+      "status": "success",
+      "documentCount": 3
+    }
+  },
+  {
+    "eventId": "EVT007",
+    "userId": "tax789",
+    "userName": "Priya Patel",
+    "userRole": "Tax",
+    "timestamp": "2025-06-15T11:30:22Z",
+    "actionType": "preview",
+    "documentId": "DOC018",
+    "employeeId": "EMP003",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Michael Williams",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT008",
+    "userId": "tax789",
+    "userName": "Priya Patel",
+    "userRole": "Tax",
+    "timestamp": "2025-06-15T11:32:10Z",
+    "actionType": "download",
+    "documentId": "DOC018",
+    "employeeId": "EMP003",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Michael Williams",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT009",
+    "userId": "efsc321",
+    "userName": "David Kim",
+    "userRole": "EFSC",
+    "timestamp": "2025-06-15T13:45:00Z",
+    "actionType": "preview",
+    "documentId": "DOC026",
+    "employeeId": "EMP004",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Emily Davis",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT010",
+    "userId": "efsc321",
+    "userName": "David Kim",
+    "userRole": "EFSC",
+    "timestamp": "2025-06-15T13:46:15Z",
+    "actionType": "download",
+    "documentId": "DOC026",
+    "employeeId": "EMP004",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Emily Davis",
+      "recipient": null,
+      "status": "denied",
+      "reason": "Insufficient permissions"
+    }
+  },
+  {
+    "eventId": "EVT011",
+    "userId": "unauth999",
+    "userName": "Test User",
+    "userRole": "Unauthorized",
+    "timestamp": "2025-06-15T14:00:05Z",
+    "actionType": "denied_access",
+    "documentId": null,
+    "employeeId": null,
+    "details": {
+      "documentType": null,
+      "employeeName": null,
+      "recipient": null,
+      "status": "denied",
+      "reason": "Unauthorized role — access denied"
+    }
+  },
+  {
+    "eventId": "EVT012",
+    "userId": "payroll123",
+    "userName": "Maria Chen",
+    "userRole": "Payroll",
+    "timestamp": "2025-06-16T08:30:12Z",
+    "actionType": "preview",
+    "documentId": "DOC032",
+    "employeeId": "EMP005",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Robert Martinez",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT013",
+    "userId": "payroll123",
+    "userName": "Maria Chen",
+    "userRole": "Payroll",
+    "timestamp": "2025-06-16T08:32:44Z",
+    "actionType": "download",
+    "documentId": "DOC032",
+    "employeeId": "EMP005",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Robert Martinez",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT014",
+    "userId": "payroll123",
+    "userName": "Maria Chen",
+    "userRole": "Payroll",
+    "timestamp": "2025-06-16T08:40:30Z",
+    "actionType": "email",
+    "documentId": "DOC038",
+    "employeeId": "EMP005",
+    "details": {
+      "documentType": "Paystub",
+      "year": "2024",
+      "period": "Q2",
+      "employeeName": "Robert Martinez",
+      "recipient": "r***@kelly.com",
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT015",
+    "userId": "supervisor001",
+    "userName": "Angela Torres",
+    "userRole": "Supervisor",
+    "timestamp": "2025-06-16T09:00:00Z",
+    "actionType": "preview",
+    "documentId": "DOC039",
+    "employeeId": "EMP006",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Jennifer Brown",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT016",
+    "userId": "supervisor001",
+    "userName": "Angela Torres",
+    "userRole": "Supervisor",
+    "timestamp": "2025-06-16T09:02:18Z",
+    "actionType": "download",
+    "documentId": "DOC039",
+    "employeeId": "EMP006",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Jennifer Brown",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT017",
+    "userId": "legal456",
+    "userName": "James Wright",
+    "userRole": "Legal",
+    "timestamp": "2025-06-16T10:15:42Z",
+    "actionType": "package",
+    "documentId": null,
+    "employeeId": "EMP007",
+    "details": {
+      "documentType": "W-2",
+      "years": ["2024", "2023", "2022", "2021", "2020"],
+      "employeeName": "David Wilson",
+      "recipient": null,
+      "status": "success",
+      "documentCount": 5
+    }
+  },
+  {
+    "eventId": "EVT018",
+    "userId": "tax789",
+    "userName": "Priya Patel",
+    "userRole": "Tax",
+    "timestamp": "2025-06-16T11:22:08Z",
+    "actionType": "preview",
+    "documentId": "DOC055",
+    "employeeId": "EMP008",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Lisa Anderson",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT019",
+    "userId": "tax789",
+    "userName": "Priya Patel",
+    "userRole": "Tax",
+    "timestamp": "2025-06-16T11:25:33Z",
+    "actionType": "download",
+    "documentId": "DOC055",
+    "employeeId": "EMP008",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Lisa Anderson",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT020",
+    "userId": "efsc321",
+    "userName": "David Kim",
+    "userRole": "EFSC",
+    "timestamp": "2025-06-16T14:10:55Z",
+    "actionType": "preview",
+    "documentId": "DOC063",
+    "employeeId": "EMP009",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "James Taylor",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT021",
+    "userId": "efsc321",
+    "userName": "David Kim",
+    "userRole": "EFSC",
+    "timestamp": "2025-06-16T14:12:30Z",
+    "actionType": "email",
+    "documentId": "DOC063",
+    "employeeId": "EMP009",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "James Taylor",
+      "recipient": null,
+      "status": "denied",
+      "reason": "Insufficient permissions"
+    }
+  },
+  {
+    "eventId": "EVT022",
+    "userId": "payroll123",
+    "userName": "Maria Chen",
+    "userRole": "Payroll",
+    "timestamp": "2025-06-17T08:05:20Z",
+    "actionType": "preview",
+    "documentId": "DOC068",
+    "employeeId": "EMP010",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Patricia Thomas",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT023",
+    "userId": "payroll123",
+    "userName": "Maria Chen",
+    "userRole": "Payroll",
+    "timestamp": "2025-06-17T08:08:45Z",
+    "actionType": "package",
+    "documentId": null,
+    "employeeId": "EMP010",
+    "details": {
+      "documentType": "W-2",
+      "years": ["2024", "2023", "2022", "2021", "2020", "2019"],
+      "employeeName": "Patricia Thomas",
+      "recipient": null,
+      "status": "success",
+      "documentCount": 6
+    }
+  },
+  {
+    "eventId": "EVT024",
+    "userId": "legal456",
+    "userName": "James Wright",
+    "userRole": "Legal",
+    "timestamp": "2025-06-17T09:30:10Z",
+    "actionType": "preview",
+    "documentId": "DOC076",
+    "employeeId": "EMP011",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Christopher Lee",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT025",
+    "userId": "legal456",
+    "userName": "James Wright",
+    "userRole": "Legal",
+    "timestamp": "2025-06-17T09:33:28Z",
+    "actionType": "download",
+    "documentId": "DOC076",
+    "employeeId": "EMP011",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Christopher Lee",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT026",
+    "userId": "unauth999",
+    "userName": "Test User",
+    "userRole": "Unauthorized",
+    "timestamp": "2025-06-17T10:00:00Z",
+    "actionType": "denied_access",
+    "documentId": null,
+    "employeeId": null,
+    "details": {
+      "documentType": null,
+      "employeeName": null,
+      "recipient": null,
+      "status": "denied",
+      "reason": "Unauthorized role — access denied"
+    }
+  },
+  {
+    "eventId": "EVT027",
+    "userId": "payroll123",
+    "userName": "Maria Chen",
+    "userRole": "Payroll",
+    "timestamp": "2025-06-17T11:15:40Z",
+    "actionType": "preview",
+    "documentId": "DOC082",
+    "employeeId": "EMP012",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Nancy Garcia",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT028",
+    "userId": "payroll123",
+    "userName": "Maria Chen",
+    "userRole": "Payroll",
+    "timestamp": "2025-06-17T11:18:55Z",
+    "actionType": "email",
+    "documentId": "DOC088",
+    "employeeId": "EMP012",
+    "details": {
+      "documentType": "Paystub",
+      "year": "2025",
+      "period": "Q1",
+      "employeeName": "Nancy Garcia",
+      "recipient": "n***@kelly.com",
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT029",
+    "userId": "tax789",
+    "userName": "Priya Patel",
+    "userRole": "Tax",
+    "timestamp": "2025-06-17T13:45:12Z",
+    "actionType": "preview",
+    "documentId": "DOC089",
+    "employeeId": "EMP013",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Daniel Harris",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT030",
+    "userId": "tax789",
+    "userName": "Priya Patel",
+    "userRole": "Tax",
+    "timestamp": "2025-06-17T13:48:30Z",
+    "actionType": "package",
+    "documentId": null,
+    "employeeId": "EMP013",
+    "details": {
+      "documentType": "W-2",
+      "years": ["2024", "2023", "2021", "2020", "2019"],
+      "employeeName": "Daniel Harris",
+      "recipient": null,
+      "status": "success",
+      "documentCount": 5
+    }
+  },
+  {
+    "eventId": "EVT031",
+    "userId": "supervisor001",
+    "userName": "Angela Torres",
+    "userRole": "Supervisor",
+    "timestamp": "2025-06-18T08:00:15Z",
+    "actionType": "preview",
+    "documentId": "DOC096",
+    "employeeId": "EMP014",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Karen Clark",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT032",
+    "userId": "supervisor001",
+    "userName": "Angela Torres",
+    "userRole": "Supervisor",
+    "timestamp": "2025-06-18T08:03:42Z",
+    "actionType": "download",
+    "documentId": "DOC096",
+    "employeeId": "EMP014",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Karen Clark",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT033",
+    "userId": "supervisor001",
+    "userName": "Angela Torres",
+    "userRole": "Supervisor",
+    "timestamp": "2025-06-18T08:10:00Z",
+    "actionType": "email",
+    "documentId": "DOC101",
+    "employeeId": "EMP014",
+    "details": {
+      "documentType": "Paystub",
+      "year": "2025",
+      "period": "Q1",
+      "employeeName": "Karen Clark",
+      "recipient": "k***@kelly.com",
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT034",
+    "userId": "payroll123",
+    "userName": "Maria Chen",
+    "userRole": "Payroll",
+    "timestamp": "2025-06-18T09:22:18Z",
+    "actionType": "preview",
+    "documentId": "DOC103",
+    "employeeId": "EMP015",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Mark Robinson",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT035",
+    "userId": "payroll123",
+    "userName": "Maria Chen",
+    "userRole": "Payroll",
+    "timestamp": "2025-06-18T09:25:50Z",
+    "actionType": "download",
+    "documentId": "DOC103",
+    "employeeId": "EMP015",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Mark Robinson",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT036",
+    "userId": "legal456",
+    "userName": "James Wright",
+    "userRole": "Legal",
+    "timestamp": "2025-06-18T10:40:05Z",
+    "actionType": "preview",
+    "documentId": "DOC112",
+    "employeeId": "EMP016",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Sandra Lewis",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT037",
+    "userId": "legal456",
+    "userName": "James Wright",
+    "userRole": "Legal",
+    "timestamp": "2025-06-18T10:42:22Z",
+    "actionType": "download",
+    "documentId": "DOC112",
+    "employeeId": "EMP016",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Sandra Lewis",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT038",
+    "userId": "efsc321",
+    "userName": "David Kim",
+    "userRole": "EFSC",
+    "timestamp": "2025-06-18T14:05:30Z",
+    "actionType": "preview",
+    "documentId": "DOC117",
+    "employeeId": "EMP017",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Steven Walker",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT039",
+    "userId": "efsc321",
+    "userName": "David Kim",
+    "userRole": "EFSC",
+    "timestamp": "2025-06-18T14:07:10Z",
+    "actionType": "package",
+    "documentId": null,
+    "employeeId": "EMP017",
+    "details": {
+      "documentType": "W-2",
+      "employeeName": "Steven Walker",
+      "recipient": null,
+      "status": "denied",
+      "reason": "Insufficient permissions"
+    }
+  },
+  {
+    "eventId": "EVT040",
+    "userId": "payroll123",
+    "userName": "Maria Chen",
+    "userRole": "Payroll",
+    "timestamp": "2025-06-19T08:15:00Z",
+    "actionType": "preview",
+    "documentId": "DOC125",
+    "employeeId": "EMP018",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Donna Hall",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT041",
+    "userId": "payroll123",
+    "userName": "Maria Chen",
+    "userRole": "Payroll",
+    "timestamp": "2025-06-19T08:18:25Z",
+    "actionType": "download",
+    "documentId": "DOC125",
+    "employeeId": "EMP018",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Donna Hall",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT042",
+    "userId": "payroll123",
+    "userName": "Maria Chen",
+    "userRole": "Payroll",
+    "timestamp": "2025-06-19T08:25:40Z",
+    "actionType": "email",
+    "documentId": "DOC129",
+    "employeeId": "EMP018",
+    "details": {
+      "documentType": "Paystub",
+      "year": "2025",
+      "period": "Q1",
+      "employeeName": "Donna Hall",
+      "recipient": "d***@kelly.com",
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT043",
+    "userId": "tax789",
+    "userName": "Priya Patel",
+    "userRole": "Tax",
+    "timestamp": "2025-06-19T10:30:15Z",
+    "actionType": "preview",
+    "documentId": "DOC131",
+    "employeeId": "EMP019",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Andrew Young",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT044",
+    "userId": "tax789",
+    "userName": "Priya Patel",
+    "userRole": "Tax",
+    "timestamp": "2025-06-19T10:33:50Z",
+    "actionType": "package",
+    "documentId": null,
+    "employeeId": "EMP019",
+    "details": {
+      "documentType": "W-2",
+      "years": ["2024", "2023", "2022", "2021", "2020"],
+      "employeeName": "Andrew Young",
+      "recipient": null,
+      "status": "success",
+      "documentCount": 5
+    }
+  },
+  {
+    "eventId": "EVT045",
+    "userId": "supervisor001",
+    "userName": "Angela Torres",
+    "userRole": "Supervisor",
+    "timestamp": "2025-06-19T14:00:08Z",
+    "actionType": "preview",
+    "documentId": "DOC140",
+    "employeeId": "EMP020",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Michelle King",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT046",
+    "userId": "supervisor001",
+    "userName": "Angela Torres",
+    "userRole": "Supervisor",
+    "timestamp": "2025-06-19T14:03:22Z",
+    "actionType": "download",
+    "documentId": "DOC140",
+    "employeeId": "EMP020",
+    "details": {
+      "documentType": "W-2",
+      "year": "2024",
+      "employeeName": "Michelle King",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT047",
+    "userId": "supervisor001",
+    "userName": "Angela Torres",
+    "userRole": "Supervisor",
+    "timestamp": "2025-06-19T14:08:55Z",
+    "actionType": "package",
+    "documentId": null,
+    "employeeId": "EMP020",
+    "details": {
+      "documentType": "W-2",
+      "years": ["2024", "2023", "2022"],
+      "employeeName": "Michelle King",
+      "recipient": null,
+      "status": "success",
+      "documentCount": 3
+    }
+  },
+  {
+    "eventId": "EVT048",
+    "userId": "unauth999",
+    "userName": "Test User",
+    "userRole": "Unauthorized",
+    "timestamp": "2025-06-20T07:55:30Z",
+    "actionType": "denied_access",
+    "documentId": null,
+    "employeeId": null,
+    "details": {
+      "documentType": null,
+      "employeeName": null,
+      "recipient": null,
+      "status": "denied",
+      "reason": "Unauthorized role — access denied"
+    }
+  },
+  {
+    "eventId": "EVT049",
+    "userId": "payroll123",
+    "userName": "Maria Chen",
+    "userRole": "Payroll",
+    "timestamp": "2025-06-20T09:10:12Z",
+    "actionType": "preview",
+    "documentId": "DOC002",
+    "employeeId": "EMP001",
+    "details": {
+      "documentType": "W-2",
+      "year": "2023",
+      "employeeName": "John Smith",
+      "recipient": null,
+      "status": "success"
+    }
+  },
+  {
+    "eventId": "EVT050",
+    "userId": "payroll123",
+    "userName": "Maria Chen",
+    "userRole": "Payroll",
+    "timestamp": "2025-06-20T09:12:48Z",
+    "actionType": "download",
+    "documentId": "DOC002",
+    "employeeId": "EMP001",
+    "details": {
+      "documentType": "W-2",
+      "year": "2023",
+      "employeeName": "John Smith",
+      "recipient": null,
+      "status": "success"
+    }
+  }
+]

@@ -1,0 +1,113 @@
+{
+  "totalFilesIngested": 89100000,
+  "failedRecords": 120,
+  "missingMetadataCount": 45,
+  "lastIngestionDate": "2025-06-20T04:00:00Z",
+  "lastValidationDate": "2025-06-20T06:30:00Z",
+  "ingestionSuccessRate": 99.9999,
+  "archiveSizeGB": 10240,
+  "documentTypes": {
+    "W-2": 62370000,
+    "Paystub": 26730000
+  },
+  "yearCoverage": {
+    "2019": 14850000,
+    "2020": 14850000,
+    "2021": 14850000,
+    "2022": 14850000,
+    "2023": 14850000,
+    "2024": 14850000
+  },
+  "unresolvedExceptions": [
+    {
+      "id": "EXC001",
+      "type": "Missing SSN",
+      "description": "Employee record missing Social Security Number — unable to match W-2 to employee profile",
+      "status": "open",
+      "employeeId": "EMP005",
+      "documentId": "DOC035",
+      "timestamp": "2025-06-18T09:15:22Z"
+    },
+    {
+      "id": "EXC002",
+      "type": "Duplicate Record",
+      "description": "Duplicate W-2 detected for tax year 2022 — requires manual reconciliation",
+      "status": "open",
+      "employeeId": "EMP008",
+      "documentId": "DOC062",
+      "timestamp": "2025-06-17T14:30:10Z"
+    },
+    {
+      "id": "EXC003",
+      "type": "Missing Metadata",
+      "description": "Document ingested without required metadata fields (year, period) — paystub cannot be classified",
+      "status": "open",
+      "employeeId": "EMP013",
+      "documentId": "DOC091",
+      "timestamp": "2025-06-16T11:45:33Z"
+    },
+    {
+      "id": "EXC004",
+      "type": "Corrupt File",
+      "description": "PDF file failed integrity check during ingestion — file may be corrupted or incomplete",
+      "status": "open",
+      "employeeId": "EMP002",
+      "documentId": "DOC014",
+      "timestamp": "2025-06-15T08:20:45Z"
+    },
+    {
+      "id": "EXC005",
+      "type": "Missing Metadata",
+      "description": "W-2 record missing employer EIN — cannot validate tax document completeness",
+      "status": "open",
+      "employeeId": "EMP006",
+      "documentId": "DOC044",
+      "timestamp": "2025-06-14T16:55:18Z"
+    },
+    {
+      "id": "EXC006",
+      "type": "Mismatched Employee ID",
+      "description": "Kelly ID on document does not match employee master record — requires manual review",
+      "status": "in_review",
+      "employeeId": "EMP011",
+      "documentId": "DOC079",
+      "timestamp": "2025-06-13T10:10:05Z"
+    },
+    {
+      "id": "EXC007",
+      "type": "Missing SSN",
+      "description": "Paystub record missing last 4 SSN digits — unable to verify employee identity",
+      "status": "open",
+      "employeeId": "EMP017",
+      "documentId": "DOC124",
+      "timestamp": "2025-06-12T13:25:40Z"
+    },
+    {
+      "id": "EXC008",
+      "type": "Ingestion Timeout",
+      "description": "Batch ingestion timed out after 30 minutes — 12 records from 2019 archive not processed",
+      "status": "resolved",
+      "employeeId": null,
+      "documentId": null,
+      "timestamp": "2025-06-10T02:00:00Z"
+    },
+    {
+      "id": "EXC009",
+      "type": "Duplicate Record",
+      "description": "Duplicate paystub Q2 2024 detected during re-ingestion cycle — awaiting deduplication",
+      "status": "open",
+      "employeeId": "EMP019",
+      "documentId": "DOC136",
+      "timestamp": "2025-06-09T07:42:15Z"
+    },
+    {
+      "id": "EXC010",
+      "type": "Corrupt File",
+      "description": "W-2 PDF for tax year 2020 has zero-byte content — re-ingestion required from source archive",
+      "status": "in_review",
+      "employeeId": "EMP014",
+      "documentId": "DOC100",
+      "timestamp": "2025-06-08T15:30:00Z"
+    }
+  ]
+}

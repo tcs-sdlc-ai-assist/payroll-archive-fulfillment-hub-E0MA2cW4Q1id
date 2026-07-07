@@ -1,0 +1,318 @@
+{
+  "greetings": [
+    {
+      "pattern": "hello",
+      "keywords": ["hello", "hi", "hey", "good morning", "good afternoon"],
+      "response": "Hello! I'm the Payroll Archive Assistant. I can help you search for employees, find historical documents like W-2s and paystubs, or fulfill document requests. How can I assist you today?",
+      "suggestedActions": ["Search for an employee", "Find a W-2", "Find a paystub", "Check archive health"]
+    },
+    {
+      "pattern": "help",
+      "keywords": ["help", "what can you do", "how does this work", "guide"],
+      "response": "I can help you with the following:\n\n• **Search employees** by name, Kelly ID, or last 4 SSN\n• **Find documents** such as W-2s and paystubs for any year from 2019–2024\n• **Preview, download, or email** documents to employees\n• **Package multiple documents** for legal or tax requests\n• **Check archive health** and review audit logs\n\nJust type your request in plain language!",
+      "suggestedActions": ["Search for an employee", "Find a W-2", "View archive health"]
+    }
+  ],
+  "employeeLookup": [
+    {
+      "pattern": "search_by_name",
+      "keywords": ["find employee", "search for", "look up", "employee named", "who is"],
+      "responseTemplate": "I found {matchCount} result(s) for \"{query}\". Here are the matching employees:",
+      "noResultResponse": "I couldn't find any employees matching \"{query}\". Please check the spelling or try searching by Kelly ID or last 4 SSN.",
+      "suggestedActions": ["View documents", "Try another search"]
+    },
+    {
+      "pattern": "search_by_kelly_id",
+      "keywords": ["kelly id", "kellyid", "kelly number", "k1"],
+      "responseTemplate": "I found employee {employeeName} (Kelly ID: {kellyId}). Would you like to view their documents?",
+      "noResultResponse": "No employee found with Kelly ID \"{query}\". Please verify the ID and try again.",
+      "suggestedActions": ["View W-2s", "View paystubs", "View all documents"]
+    },
+    {
+      "pattern": "search_by_ssn",
+      "keywords": ["ssn", "social security", "last 4", "last four", "tax id"],
+      "responseTemplate": "I found employee {employeeName} matching the last 4 SSN digits provided. For security, the full Tax ID is masked as {maskedTaxId}.",
+      "noResultResponse": "No employee found matching those SSN digits. Please verify and try again.",
+      "suggestedActions": ["View documents", "Try another search"]
+    }
+  ],
+  "ambiguousResults": [
+    {
+      "pattern": "multiple_matches",
+      "responseTemplate": "I found {matchCount} employees matching \"{query}\". Could you help me narrow it down?",
+      "clarificationPrompts": [
+        "Can you provide the Kelly ID?",
+        "Do you know the last 4 digits of their SSN?",
+        "Which department are they in?",
+        "Which location — Troy, MI; Detroit, MI; Chicago, IL; or Austin, TX?"
+      ],
+      "suggestedActions": ["Provide Kelly ID", "Provide last 4 SSN", "Specify department"]
+    },
+    {
+      "pattern": "no_match",
+      "responseTemplate": "I couldn't find any results for \"{query}\". Here are some suggestions:",
+      "suggestions": [
+        "Check the spelling of the employee name",
+        "Try searching by Kelly ID (e.g., K100234)",
+        "Try searching by last 4 SSN digits",
+        "Verify the employee is in the archive (years 2019–2024)"
+      ],
+      "suggestedActions": ["Try again", "Search by Kelly ID", "Search by SSN"]
+    }
+  ],
+  "documentSearch": [
+    {
+      "pattern": "find_w2",
+      "keywords": ["w-2", "w2", "tax form", "tax document", "wage statement"],
+      "responseTemplate": "Here are the W-2 documents for {employeeName}:",
+      "noResultResponse": "No W-2 documents found for {employeeName}. The document may not have been ingested yet or may be flagged as missing.",
+      "suggestedActions": ["Preview document", "Download document", "Email to employee", "Package documents"]
+    },
+    {
+      "pattern": "find_paystub",
+      "keywords": ["paystub", "pay stub", "paycheck", "pay slip", "earnings statement"],
+      "responseTemplate": "Here are the paystub records for {employeeName}:",
+      "noResultResponse": "No paystub records found for {employeeName} for the requested period.",
+      "suggestedActions": ["Preview document", "Download document", "Email to employee"]
+    },
+    {
+      "pattern": "find_by_year",
+      "keywords": ["2019", "2020", "2021", "2022", "2023", "2024", "2025", "for year", "tax year"],
+      "responseTemplate": "Here are the documents for {employeeName} for tax year {year}:",
+      "noResultResponse": "No documents found for {employeeName} for year {year}. The archive covers years 2019–2024 for W-2s and recent quarters for paystubs.",
+      "suggestedActions": ["Try another year", "View all documents", "Check archive health"]
+    },
+    {
+      "pattern": "find_all_documents",
+      "keywords": ["all documents", "everything", "full history", "complete record", "all files"],
+      "responseTemplate": "Here is the complete document archive for {employeeName}. They have {documentCount} document(s) on file:",
+      "noResultResponse": "No documents found for this employee in the archive.",
+      "suggestedActions": ["Filter by type", "Filter by year", "Package all documents"]
+    },
+    {
+      "pattern": "missing_document",
+      "keywords": ["missing", "not found", "unavailable", "where is", "can't find"],
+      "responseTemplate": "The requested document ({documentType} for {year}) is currently marked as missing for {employeeName}. This may be due to an ingestion issue or a data exception.",
+      "suggestedActions": ["View exceptions", "Check archive health", "Try another document"]
+    }
+  ],
+  "fulfillment": [
+    {
+      "pattern": "preview",
+      "keywords": ["preview", "view", "show me", "open", "display", "look at"],
+      "responseTemplate": "Opening preview for {documentType} ({year}) for {employeeName}. This action has been logged for audit purposes.",
+      "confirmationRequired": false,
+      "suggestedActions": ["Download", "Email to employee", "Go back to documents"]
+    },
+    {
+      "pattern": "download",
+      "keywords": ["download", "save", "get file", "export"],
+      "responseTemplate": "Preparing {documentType} ({year}) for {employeeName} for download.",
+      "confirmationRequired": true,
+      "confirmationPrompt": "Please confirm: You are about to download {fileName}. This action will be recorded in the audit log. Proceed?",
+      "successResponse": "Download initiated for {fileName}. The audit log has been updated.",
+      "deniedResponse": "You do not have permission to download documents. Your role ({userRole}) does not include download access. This attempt has been logged.",
+      "suggestedActions": ["Confirm download", "Cancel", "Preview instead"]
+    },
+    {
+      "pattern": "email",
+      "keywords": ["email", "send", "mail", "deliver", "forward"],
+      "responseTemplate": "Preparing to email {documentType} ({year}) to {employeeName}.",
+      "confirmationRequired": true,
+      "confirmationPrompt": "Please confirm: You are about to email {fileName} to {recipientEmail}. This action will be recorded in the audit log. Proceed?",
+      "successResponse": "Email sent successfully. {fileName} has been delivered to {recipientEmail}. The audit log has been updated.",
+      "deniedResponse": "You do not have permission to email documents. Your role ({userRole}) does not include email access. This attempt has been logged.",
+      "suggestedActions": ["Confirm email", "Cancel", "Download instead"]
+    },
+    {
+      "pattern": "package",
+      "keywords": ["package", "bundle", "combine", "zip", "multi-year", "multiple documents", "all w-2s"],
+      "responseTemplate": "Preparing a document package for {employeeName} containing {documentCount} document(s) across {yearRange}.",
+      "confirmationRequired": true,
+      "confirmationPrompt": "Please confirm: You are about to package {documentCount} document(s) for {employeeName}. This action will be recorded in the audit log. Proceed?",
+      "successResponse": "Document package created successfully with {documentCount} document(s). The audit log has been updated.",
+      "deniedResponse": "You do not have permission to package documents. Your role ({userRole}) does not include package access. This attempt has been logged.",
+      "suggestedActions": ["Confirm package", "Cancel", "Select different documents"]
+    }
+  ],
+  "auditQueries": [
+    {
+      "pattern": "view_audit_log",
+      "keywords": ["audit log", "audit trail", "activity log", "who accessed", "access history"],
+      "responseTemplate": "Here are the recent audit log entries. There are {eventCount} events recorded:",
+      "suggestedActions": ["Filter by user", "Filter by action", "Filter by date", "Export audit log"]
+    },
+    {
+      "pattern": "who_accessed",
+      "keywords": ["who accessed", "who viewed", "who downloaded", "who emailed", "access for"],
+      "responseTemplate": "Here are the access events for {employeeName}'s documents:",
+      "noResultResponse": "No access events found for {employeeName}'s documents in the audit log.",
+      "suggestedActions": ["View full audit log", "Filter by date range"]
+    },
+    {
+      "pattern": "archive_health",
+      "keywords": ["archive health", "archive status", "ingestion", "completeness", "exceptions", "data quality"],
+      "responseTemplate": "Archive Health Summary:\n• Total files ingested: {totalFiles}\n• Ingestion success rate: {successRate}%\n• Failed records: {failedRecords}\n• Missing metadata: {missingMetadata}\n• Archive size: {archiveSize} GB\n• Last ingestion: {lastIngestion}\n• Last validation: {lastValidation}\n• Unresolved exceptions: {exceptionCount}",
+      "suggestedActions": ["View exceptions", "View document types breakdown", "View year coverage"]
+    },
+    {
+      "pattern": "view_exceptions",
+      "keywords": ["exceptions", "errors", "issues", "problems", "unresolved", "failed"],
+      "responseTemplate": "There are {exceptionCount} unresolved exceptions in the archive:",
+      "noResultResponse": "No unresolved exceptions found. The archive is in good health.",
+      "suggestedActions": ["View exception details", "View archive health", "Go back"]
+    }
+  ],
+  "accessDenied": [
+    {
+      "pattern": "unauthorized_role",
+      "responseTemplate": "Access denied. Your role ({userRole}) does not have permission to {action}. If you believe this is an error, please contact your supervisor or the system administrator.",
+      "suggestedActions": ["Go to dashboard", "Try a different action"]
+    },
+    {
+      "pattern": "insufficient_permissions",
+      "responseTemplate": "You have permission to {allowedActions}, but {action} requires additional authorization. Please contact your supervisor for elevated access.",
+      "suggestedActions": ["View allowed actions", "Contact supervisor"]
+    }
+  ],
+  "confirmations": [
+    {
+      "pattern": "confirm_yes",
+      "keywords": ["yes", "confirm", "proceed", "go ahead", "do it", "ok", "okay", "sure", "approved"],
+      "responseTemplate": "Confirmed. Processing your request now..."
+    },
+    {
+      "pattern": "confirm_no",
+      "keywords": ["no", "cancel", "stop", "nevermind", "never mind", "abort", "don't", "back"],
+      "responseTemplate": "Request cancelled. No action has been taken. How else can I help you?"
+    }
+  ],
+  "errors": [
+    {
+      "pattern": "unknown_query",
+      "responseTemplate": "I'm sorry, I didn't understand that request. Could you try rephrasing? Here are some things I can help with:",
+      "suggestions": [
+        "Search for an employee (e.g., \"Find John Smith\")",
+        "Find a document (e.g., \"Show W-2 for 2024\")",
+        "Fulfill a request (e.g., \"Email the W-2 to the employee\")",
+        "Check archive health (e.g., \"Show archive status\")"
+      ],
+      "suggestedActions": ["Search employee", "Find document", "View archive health", "View audit log"]
+    },
+    {
+      "pattern": "system_error",
+      "responseTemplate": "An unexpected error occurred while processing your request. Please try again. If the issue persists, contact the system administrator.",
+      "suggestedActions": ["Try again", "Go to dashboard"]
+    },
+    {
+      "pattern": "document_unavailable",
+      "responseTemplate": "The requested document is currently unavailable. It may be missing from the archive or flagged with an exception. Please check the archive health dashboard for more details.",
+      "suggestedActions": ["Check archive health", "View exceptions", "Try another document"]
+    }
+  ],
+  "contextualFollowUps": [
+    {
+      "pattern": "after_search",
+      "responseTemplate": "Would you like to do anything else with {employeeName}'s records?",
+      "suggestedActions": ["View W-2s", "View paystubs", "Package documents", "Search another employee"]
+    },
+    {
+      "pattern": "after_preview",
+      "responseTemplate": "You've previewed {documentType} ({year}) for {employeeName}. What would you like to do next?",
+      "suggestedActions": ["Download this document", "Email to employee", "View another document", "Go back"]
+    },
+    {
+      "pattern": "after_download",
+      "responseTemplate": "Download complete for {fileName}. Is there anything else you need?",
+      "suggestedActions": ["Email this document", "Package more documents", "Search another employee", "View audit log"]
+    },
+    {
+      "pattern": "after_email",
+      "responseTemplate": "Email sent successfully to {recipientEmail}. Is there anything else I can help with?",
+      "suggestedActions": ["Send another document", "Search another employee", "View audit log"]
+    },
+    {
+      "pattern": "after_package",
+      "responseTemplate": "Document package created with {documentCount} file(s). Would you like to do anything else?",
+      "suggestedActions": ["Download package", "Email package", "Search another employee", "View audit log"]
+    }
+  ],
+  "naturalLanguageExamples": [
+    {
+      "query": "Find John Smith's W-2 for 2024",
+      "intent": "document_search",
+      "extractedParams": {
+        "employeeName": "John Smith",
+        "documentType": "W-2",
+        "year": "2024"
+      }
+    },
+    {
+      "query": "Show me all documents for employee K100456",
+      "intent": "document_search",
+      "extractedParams": {
+        "kellyId": "K100456",
+        "documentType": "all"
+      }
+    },
+    {
+      "query": "Email Sarah Johnson her latest paystub",
+      "intent": "fulfillment_email",
+      "extractedParams": {
+        "employeeName": "Sarah Johnson",
+        "documentType": "Paystub",
+        "year": "latest"
+      }
+    },
+    {
+      "query": "Download the 2023 W-2 for employee with SSN ending 5678",
+      "intent": "fulfillment_download",
+      "extractedParams": {
+        "last4SSN": "5678",
+        "documentType": "W-2",
+        "year": "2023"
+      }
+    },
+    {
+      "query": "Package all W-2s from 2019 to 2024 for David Wilson",
+      "intent": "fulfillment_package",
+      "extractedParams": {
+        "employeeName": "David Wilson",
+        "documentType": "W-2",
+        "yearRange": "2019-2024"
+      }
+    },
+    {
+      "query": "Who accessed Emily Davis's records?",
+      "intent": "audit_query",
+      "extractedParams": {
+        "employeeName": "Emily Davis"
+      }
+    },
+    {
+      "query": "Show archive health status",
+      "intent": "archive_health",
+      "extractedParams": {}
+    },
+    {
+      "query": "What exceptions are in the archive?",
+      "intent": "view_exceptions",
+      "extractedParams": {}
+    },
+    {
+      "query": "Find the paystub for Q1 2025 for Patricia Thomas",
+      "intent": "document_search",
+      "extractedParams": {
+        "employeeName": "Patricia Thomas",
+        "documentType": "Paystub",
+        "year": "2025",
+        "period": "Q1"
+      }
+    },
+    {
+      "query": "Show me the audit log",
+      "intent": "audit_query",
+      "extractedParams": {}
+    }
+  ]
+}
